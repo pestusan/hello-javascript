@@ -7,19 +7,26 @@
   <body>
     <form>
       radius:<input id="inputRadius"><br>
+      höhe:<input id="inputHight"><br>
       <input type="button" value="calc" id="btnCalc">
     <form>
     <div id="outputArea"></div>
     <div id="outputCircumference"></div>
+    <div id="outputVolume"></div>
+    <div id="outputOutsideSurface"></div>
     <script src="geometry.js" charset="utf-8"></script>
     <script>
       var btnCalc = document.getElementById('btnCalc');
 
       btnCalc.addEventListener('click', function(){
         var r = parseInt(document.getElementById('inputRadius').value);
+        var h = parseInt(document.getElementById('inputHight').value);
         var circle1 = new Circle(r);
+        var cylinder1 = new Cylinder(r, h);
         document.getElementById('outputArea').innerHTML = "Fläche: " + circle1.calcArea();
         document.getElementById('outputCircumference').innerHTML = "Umfang: " + circle1.calcCircumference();
+        document.getElementById('outputVolume').innerHTML = "Volumen: " + cylinder1.calcVolume();
+        document.getElementById('outputOutsideSurface').innerHTML = "Mantelfläche: " + cylinder1.calcOutsideSurface();
       });
     </script>
   </body>

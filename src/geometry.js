@@ -4,12 +4,25 @@ class Circle {
   }
 
   calcArea() {
-    this.area = Math.PI * (this.r * this.r);
-    return this.area;
+    return Math.PI * (this.r * this.r);
   }
 
   calcCircumference() {
-    this.circumference = 2 * Math.PI * this.r;
-    return this.circumference;
+    return 2 * Math.PI * this.r;
+  }
+}
+
+class Cylinder extends Circle{
+  constructor(r, h) {
+    super(r);
+    this.h = h;
+  }
+
+  calcVolume() {
+    return super.calcArea() * this.h;
+  }
+
+  calcOutsideSurface() {
+    return super.calcCircumference() * this.h;
   }
 }
