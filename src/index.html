@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>geometry</title>
+  </head>
+  <body>
+    <form>
+      radius:<input id="inputRadius"><br>
+      <input type="button" value="calc" id="btnCalc">
+    <form>
+    <div id="outputArea"></div>
+    <div id="outputCircumference"></div>
+    <script src="geometry.js" charset="utf-8"></script>
+    <script>
+      var btnCalc = document.getElementById('btnCalc');
+
+      btnCalc.addEventListener('click', function(){
+        var r = parseInt(document.getElementById('inputRadius').value);
+        var circle1 = new Circle(r);
+        document.getElementById('outputArea').innerHTML = "Fläche: " + circle1.calcArea();
+        document.getElementById('outputCircumference').innerHTML = "Umfang: " + circle1.calcCircumference();
+      });
+    </script>
+  </body>
+</html>
