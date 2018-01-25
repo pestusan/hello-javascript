@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>regex</title>
+  </head>
+  <body>
+    <form>
+      string:<input id="inputString">(YYYY-MM-dd)<br>
+      <input type="button" value="execute" id="btnExecute">
+    <form>
+    <div id="outputArea"></div>
+
+    <script>
+    var btnExecute = document.getElementById('btnExecute');
+
+    btnExecute.addEventListener('click', function() {
+      var regex1 = /(\d+)-(\d+)-(\d+)/g;
+      var dateString = document.getElementById('inputString').value;
+      var result = regex1.exec(dateString);
+      console.log(result);
+
+      var replacedString = dateString.replace(regex1, 'Get german date: $3.$2.$1');
+      document.getElementById('outputArea').innerHTML = replacedString;
+    });
+    </script>
+  </body>
+</html>
